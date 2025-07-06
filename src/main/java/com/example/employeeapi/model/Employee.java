@@ -1,6 +1,7 @@
 package com.example.employeeapi.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -12,7 +13,10 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Name is required")
+    private String name;
 
-    private  String name;
-    private  String role;
+    @NotBlank(message = "Role is required")
+    private String role;
+
 }
